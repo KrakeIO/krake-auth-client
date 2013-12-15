@@ -3,11 +3,11 @@ request = require 'request'
 
 class KrakeAuthClient
 
-  constructor: (@host, @port=80)->
+  constructor: (@host)->
 
   # Public main method for validating a token against the auth server
   validate: (token, callback)->
-    auth_url = @host + ':' + @port + '/validate/' + token
+    auth_url = @host + '/validate/' + token
     request auth_url, (err, res, body)->
       if !err && res.statusCode == 200
         try
