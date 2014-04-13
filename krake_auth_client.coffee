@@ -19,9 +19,9 @@ class KrakeAuthClient
             callback && callback 'authentication failed', false
 
         catch error
-          callback && callback 'invalid response : ' + error, false
+          callback && callback "invalid response : #{error}", false
 
       else 
-        callback 'auth server is down', false
+        callback "auth server is unreachable : #{err}", false
 
 module.exports = KrakeAuthClient
